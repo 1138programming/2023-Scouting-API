@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Team1138.ScoutingApp.Data.Entities
 {
@@ -6,6 +7,8 @@ namespace Team1138.ScoutingApp.Data.Entities
     public class Match
     {
         public int CompetitionId { get; set; }
+        
+        [ForeignKey(nameof(CompetitionId))]
 
         public Competition Competition { get; set; }
 
