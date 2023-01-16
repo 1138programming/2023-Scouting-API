@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scouting App API Demo</title>
+</head>
+
+<body>
+    <div>
+        <h1>Saved Competitions</h1>
+        <ul id="savedCompetitions"></ul>
+
+        <input id="compName" type="text"></input>
+        <button onclick="newComp()">Add</button>
+    </div>
+
+    <script>
+        const apiUrl = 'https://1138-scouting-api.azurewebsites.net/api/';
+
+        rebuildList();
+
+        function rebuildList() {
+            const ul = document.getElementById("savedCompetitions");
+            ul.innerHTML = '';
+
+            fetch(apiUrl + 'Competitions')
+                .then((response) => response.json())
+                .then((data) => {
+                    for (const competition of data) {
+                        const li = document.createElement("li");
+                        li.innerText = `${competition.name} with an id of ${competition.competitionID}`;
+                        ul.appendChild(li);
+                    }
+                });
+        }
+
+        function newComp() {
+            const comp = {
+                name: document.getElementById('compName').value,
+                location: ''
+            };
+
+            fetch(apiUrl + 'Competitions',
+                {
+                    method: 'POST',
+                    body: JSON.stringify(comp),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(() => { rebuildList(); })
+        }
+    </script>
+</body>
+
+</html>
