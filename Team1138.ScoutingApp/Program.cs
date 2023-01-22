@@ -2,6 +2,8 @@ using System.Configuration;
 using System;
 using Team1138.ScoutingApp.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Team1138.ScoutingApp
 {

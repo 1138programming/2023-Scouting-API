@@ -7,8 +7,10 @@ namespace Team1138.ScoutingApp.Data.Entities
         [Key]
         public int TeamNumber { get; set; }
 
+        [Required]
         public string Name { get; set; }
-
+        
+        [Required]
         public string Location { get; set; }
     }
 }
