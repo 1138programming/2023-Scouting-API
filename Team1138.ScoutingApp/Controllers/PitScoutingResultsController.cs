@@ -12,25 +12,25 @@ namespace Team1138.ScoutingApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PitSoutingResultsController : ControllerBase
+    public class PitScoutingResultsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public PitSoutingResultsController(AppDbContext context)
+        public PitScoutingResultsController(AppDbContext context)
         {
             _context = context;
         }
 
         // GET: api/PitSoutingResults
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PitSoutingResult>>> GetPitSoutingResults()
+        public async Task<ActionResult<IEnumerable<PitScoutingResult>>> GetPitSoutingResults()
         {
             return await _context.PitSoutingResults.ToListAsync();
         }
 
         // GET: api/PitSoutingResults/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PitSoutingResult>> GetPitSoutingResult(int id)
+        public async Task<ActionResult<PitScoutingResult>> GetPitSoutingResult(int id)
         {
             var pitSoutingResult = await _context.PitSoutingResults.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace Team1138.ScoutingApp.Controllers
         // PUT: api/PitSoutingResults/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPitSoutingResult(int id, PitSoutingResult pitSoutingResult)
+        public async Task<IActionResult> PutPitSoutingResult(int id, PitScoutingResult pitSoutingResult)
         {
             if (id != pitSoutingResult.Id)
             {
@@ -76,7 +76,7 @@ namespace Team1138.ScoutingApp.Controllers
         // POST: api/PitSoutingResults
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<PitSoutingResult>> PostPitSoutingResult(PitSoutingResult pitSoutingResult)
+        public async Task<ActionResult<PitScoutingResult>> PostPitSoutingResult(PitScoutingResult pitSoutingResult)
         {
             _context.PitSoutingResults.Add(pitSoutingResult);
             await _context.SaveChangesAsync();

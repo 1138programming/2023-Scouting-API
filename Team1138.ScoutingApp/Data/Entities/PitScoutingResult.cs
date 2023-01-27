@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Team1138.ScoutingApp.Data.Entities
 {
-    public class PitSoutingResult
+    public class PitScoutingResult
     {
         [Key]
         public int Id { get; set; }
@@ -29,6 +29,8 @@ namespace Team1138.ScoutingApp.Data.Entities
         public int? NumBatChargers { get; set; }
 
         public int? DrivetrainMotorNum { get; set; }
+
+        public MotorType? MotorType { get; set; }
 
         public bool? NodeTypeHigh { get; set; }
 

@@ -15,7 +15,7 @@ namespace Team1138.ScoutingApp.Data
 
         public DbSet<Match> Matches { get; set; }
 
-        public DbSet<PitSoutingResult> PitSoutingResults { get; set; }
+        public DbSet<PitScoutingResult> PitSoutingResults { get; set; }
 
         public DbSet<Team> Teams { get; set; }
 

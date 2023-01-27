@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Team1138.ScoutingApp.Data;
 
@@ -11,9 +12,11 @@ using Team1138.ScoutingApp.Data;
 namespace Team1138.ScoutingApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230122221824_v5")]
+    partial class v5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,7 +62,7 @@ namespace Team1138.ScoutingApp.Migrations
                     b.ToTable("Matches");
                 });
 
-            modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.PitScoutingResult", b =>
+            modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.PitSoutingResult", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -171,7 +174,7 @@ namespace Team1138.ScoutingApp.Migrations
                     b.Navigation("Competition");
                 });
 
-            modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.PitScoutingResult", b =>
+            modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.PitSoutingResult", b =>
                 {
                     b.HasOne("Team1138.ScoutingApp.Data.Entities.Competition", "Competition")
                         .WithMany()
