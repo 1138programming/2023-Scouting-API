@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Team1138.ScoutingApp.Data;
 
@@ -11,9 +12,11 @@ using Team1138.ScoutingApp.Data;
 namespace Team1138.ScoutingApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230128223608_v7")]
+    partial class v7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,6 +70,9 @@ namespace Team1138.ScoutingApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool?>("CantScoreNode")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("ChargingStationActivation")
                         .HasColumnType("int");
 
@@ -76,34 +82,19 @@ namespace Team1138.ScoutingApp.Migrations
                     b.Property<int>("CompetitionId")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("CoopNodeTypeHighCone")
+                    b.Property<bool?>("CoopNodeTypeHigh")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("CoopNodeTypeHighCube")
+                    b.Property<bool?>("CoopNodeTypeHybridOrFloor")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("CoopNodeTypeHybridCone")
+                    b.Property<bool?>("CoopNodeTypeMid")
                         .HasColumnType("bit");
-
-                    b.Property<bool?>("CoopNodeTypeHybridCube")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("CoopNodeTypeMidCone")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("CoopNodeTypeMidCube")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("DriverControlGamePiecesUsed")
-                        .HasColumnType("int");
 
                     b.Property<int?>("DrivetrainMotorNum")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EndGameChargingStationPosition")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EndGameDockingActivation")
+                    b.Property<int?>("EndGameDock")
                         .HasColumnType("int");
 
                     b.Property<int?>("GamePieceStartingPosFL")
@@ -118,25 +109,10 @@ namespace Team1138.ScoutingApp.Migrations
                     b.Property<int?>("GamePieceStartingPosMR")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MobilityPoints")
-                        .HasColumnType("int");
-
                     b.Property<int?>("MotorType")
                         .HasColumnType("int");
 
                     b.Property<bool?>("NodeTypeHigh")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("NodeTypeHighCone")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("NodeTypeHighCube")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("NodeTypeHybridCone")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("NodeTypeHybridCube")
                         .HasColumnType("bit");
 
                     b.Property<bool?>("NodeTypeHybridOrFloor")
@@ -145,14 +121,8 @@ namespace Team1138.ScoutingApp.Migrations
                     b.Property<bool?>("NodeTypeMid")
                         .HasColumnType("bit");
 
-                    b.Property<bool?>("NodeTypeMidCone")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("NodeTypeMidCube")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("NodeTypeNone")
-                        .HasColumnType("bit");
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("NumBatChargers")
                         .HasColumnType("int");

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NuGet.Configuration;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Team1138.ScoutingApp.Data.Entities
@@ -19,69 +20,55 @@ namespace Team1138.ScoutingApp.Data.Entities
 
         [ForeignKey(nameof(TeamNumber))]
         public virtual Team Team { get; set; }
-
-        public EndGameDock? EndGameDock { get; set; }
-
-        public string? Notes { get; set; }
-
+        //Pit Details
         public int? NumBatteries { get; set; }
-
         public int? NumBatChargers { get; set; }
-
-        public int? DrivetrainMotorNum { get; set; }
-
+        //Bot and Gameplay Details
         public MotorType? MotorType { get; set; }
-
-        public bool? NodeTypeHigh { get; set; }
-
-        public bool? NodeTypeMid { get; set; }
-
+        public int? DrivetrainMotorNum { get; set; }
         public bool? NodeTypeHybridOrFloor { get; set; }
-
-        public bool? CoopNodeTypeHigh { get; set; }
-
-        public bool? CoopNodeTypeMid { get; set; }
-
-        public bool? CoopNodeTypeHybridOrFloor { get; set; }
-
-        public bool? CantScoreNode { get; set; }
-
-        public GamePieceStartingPos? GamePieceStartingPosFR { get; set; }
-
-        public GamePieceStartingPos? GamePieceStartingPosMR { get; set; }
-
-        public GamePieceStartingPos? GamePieceStartingPosML { get; set; }
-
-        public GamePieceStartingPos? GamePieceStartingPosFL { get; set; }
-
-        public bool? CanDockOnChargingStation { get; set; }
-
-        public bool? CanEngageOnChargingStation { get; set; }
+        public bool? NodeTypeMid { get; set; }
+        public bool? NodeTypeHigh { get; set; }
+        public bool? NodeTypeNone { get; set; }
+        public GamePieces? DriverControlGamePiecesUsed { get; set; }
+        //EndGame
+        public ChargingStationActivation? EndGameDockingActivation { get; set; }
+        public ChargingStationPosition? EndGameChargingStationPosition { get; set; }
+        //Auton
+        public Mobility? MobilityPoints { get; set; }
+        public bool? CoopNodeTypeHighCone { get; set; }
+        public bool? CoopNodeTypeHighCube { get; set; }
+        public bool? CoopNodeTypeMidCone { get; set; }
+        public bool? CoopNodeTypeMidCube { get; set; }
+        public bool? CoopNodeTypeHybridCone { get; set; }
+        public bool? CoopNodeTypeHybridCube { get; set; }
+        public bool? NodeTypeHighCone { get; set; }
+        public bool? NodeTypeHighCube { get; set; }
+        public bool? NodeTypeMidCone { get; set; }
+        public bool? NodeTypeMidCube { get; set; }
+        public bool? NodeTypeHybridCone { get; set; }
+        public bool? NodeTypeHybridCube { get; set; }
+        public ChargingStationActivation? ChargingStationActivation { get; set; }
+        public ChargingStationPosition? ChargingStationPosition { get; set; }
+        public GamePieces? GamePieceStartingPosFR { get; set; }
+        public GamePieces? GamePieceStartingPosMR { get; set; }
+        public GamePieces? GamePieceStartingPosML { get; set; }
+        public GamePieces? GamePieceStartingPosFL { get; set; }
     }
 
     public enum ChargingStationActivation
     {
         Unknown = 0,
+        Docked = 1,
+        Engaged = 2,
+        Unable = 3,
+    }
+    public enum ChargingStationPosition
+    {
+        Unknown = 0,
         Left = 1,
         Middle = 2,
         Right = 3,
-        Undecided = 4,
-        Cannot = 5,
-    }
-    public enum GamePieceStartingPos
-    {
-        Unknown = 0,
-        Cone = 1,
-        Cube = 2,
-        Undecided = 3,
-    }
-    public enum MotorType
-    {
-        Unknown = 0,
-        Faclon = 1,
-        Neo = 2,
-        Cim = 3,
-        Other = 4
     }
     public enum EndGameDock
     {
@@ -91,4 +78,26 @@ namespace Team1138.ScoutingApp.Data.Entities
         Middle = 3,
         None = 4
     }
+    public enum GamePieces
+    {
+        Unknown = 0,
+        Cone = 1,
+        Cube = 2,
+        Undecided = 3,
+    }
+    public enum Mobility
+    {
+        Unknown = 0,
+        Yes = 1,
+        No = 2,
+    }
+    public enum MotorType
+    {
+        Unknown = 0,
+        Faclon = 1,
+        Neo = 2,
+        Cim = 3,
+        Other = 4
+    }
+
 }
