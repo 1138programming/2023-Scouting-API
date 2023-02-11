@@ -21,38 +21,38 @@ namespace Team1138.ScoutingApp.Controllers
             _context = context;
         }
 
-        // GET: api/PitSoutingResults
+        // GET: api/PitScoutingResults
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PitScoutingResult>>> GetPitSoutingResults()
         {
             return await _context.PitSoutingResults.ToListAsync();
         }
 
-        // GET: api/PitSoutingResults/5
+        // GET: api/PitScoutingResults/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PitScoutingResult>> GetPitSoutingResult(int id)
+        public async Task<ActionResult<PitScoutingResult>> GetPitScoutingResult(int id)
         {
-            var pitSoutingResult = await _context.PitSoutingResults.FindAsync(id);
+            var pitScoutingResult = await _context.PitSoutingResults.FindAsync(id);
 
-            if (pitSoutingResult == null)
+            if (pitScoutingResult == null)
             {
                 return NotFound();
             }
 
-            return pitSoutingResult;
+            return pitScoutingResult;
         }
 
-        // PUT: api/PitSoutingResults/5
+        // PUT: api/PitScoutingResults/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPitSoutingResult(int id, PitScoutingResult pitSoutingResult)
+        public async Task<IActionResult> PutPitScoutingResult(int id, PitScoutingResult pitScoutingResult)
         {
-            if (id != pitSoutingResult.Id)
+            if (id != pitScoutingResult.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(pitSoutingResult).State = EntityState.Modified;
+            _context.Entry(pitScoutingResult).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace Team1138.ScoutingApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PitSoutingResultExists(id))
+                if (!PitScoutingResultExists(id))
                 {
                     return NotFound();
                 }
@@ -73,34 +73,34 @@ namespace Team1138.ScoutingApp.Controllers
             return NoContent();
         }
 
-        // POST: api/PitSoutingResults
+        // POST: api/PitScoutingResults
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<PitScoutingResult>> PostPitSoutingResult(PitScoutingResult pitSoutingResult)
+        public async Task<ActionResult<PitScoutingResult>> PostPitScoutingResult(PitScoutingResult pitScoutingResult)
         {
-            _context.PitSoutingResults.Add(pitSoutingResult);
+            _context.PitSoutingResults.Add(pitScoutingResult);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPitSoutingResult", new { id = pitSoutingResult.Id }, pitSoutingResult);
+            return CreatedAtAction("GetPitScoutingResult", new { id = pitScoutingResult.Id }, pitScoutingResult);
         }
 
-        // DELETE: api/PitSoutingResults/5
+        // DELETE: api/PitScoutingResults/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePitSoutingResult(int id)
+        public async Task<IActionResult> DeletePitScoutingResult(int id)
         {
-            var pitSoutingResult = await _context.PitSoutingResults.FindAsync(id);
-            if (pitSoutingResult == null)
+            var pitScoutingResult = await _context.PitSoutingResults.FindAsync(id);
+            if (pitScoutingResult == null)
             {
                 return NotFound();
             }
 
-            _context.PitSoutingResults.Remove(pitSoutingResult);
+            _context.PitSoutingResults.Remove(pitScoutingResult);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool PitSoutingResultExists(int id)
+        private bool PitScoutingResultExists(int id)
         {
             return _context.PitSoutingResults.Any(e => e.Id == id);
         }

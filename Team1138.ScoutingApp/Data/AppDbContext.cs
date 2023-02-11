@@ -19,5 +19,7 @@ namespace Team1138.ScoutingApp.Data
 
         public DbSet<Team> Teams { get; set; }
 
+        public DbSet<Team1138.ScoutingApp.Data.Entities.MatchResult> MatchResult { get; set; }
+
     }
 }

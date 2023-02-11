@@ -8,6 +8,7 @@ namespace Team1138.ScoutingApp.Data.Entities
     public class Match
     {
         [Required]
+
         [ForeignKey(nameof(Competition))]
         public int CompetitionId { get; set; }
         
