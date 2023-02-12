@@ -48,15 +48,127 @@ namespace Team1138.ScoutingApp.Migrations
 
             modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.Match", b =>
                 {
-                    b.Property<int>("CompetitionId")
+                    b.Property<int>("MatchID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MatchID"));
+
+                    b.Property<int>("Competition")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CompetitionID")
                         .HasColumnType("int");
 
                     b.Property<int>("MatchNumber")
                         .HasColumnType("int");
 
-                    b.HasKey("CompetitionId", "MatchNumber");
+                    b.HasKey("MatchID");
 
                     b.ToTable("Matches");
+                });
+
+            modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.MatchResult", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool?>("ActivationBonus")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("AutonDocking")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("AutonNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("AutonWinner")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AutonomousControlPoints")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AutonomousHighCone")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AutonomousHighCube")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AutonomousLowCone")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AutonomousLowCube")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AutonomousMidCone")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AutonomousMidCube")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("CoopertitionBonus")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("DCControlPoints")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("DCDocking")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("DCEngaged")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("DCHighCone")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DCHighCube")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DCLowCone")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DCLowCube")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DCMidCone")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DCMidCube")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DPR")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Engaged")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MatchNumber")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("MobilityBonus")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("OPR")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("SustainabilityBonus")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MatchResult");
                 });
 
             modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.PitScoutingResult", b =>
@@ -191,17 +303,6 @@ namespace Team1138.ScoutingApp.Migrations
                     b.HasKey("TeamNumber");
 
                     b.ToTable("Teams");
-                });
-
-            modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.Match", b =>
-                {
-                    b.HasOne("Team1138.ScoutingApp.Data.Entities.Competition", "Competition")
-                        .WithMany()
-                        .HasForeignKey("CompetitionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Competition");
                 });
 
             modelBuilder.Entity("Team1138.ScoutingApp.Data.Entities.PitScoutingResult", b =>
