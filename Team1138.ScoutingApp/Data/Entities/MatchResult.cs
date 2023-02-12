@@ -42,9 +42,9 @@ namespace Team1138.ScoutingApp.Data.Entities
         public int? AutonomousLowCubeAccuracy { get; set; }
         public int? AutonomousLowConeAccuracy { get; set; }
         public bool? AutonDocking { get; set; }
-        public AutonWinner? AutonWinner { get; set; }
         public bool? Engaged { get; set; }
         public bool? MobilityBonus { get; set; }
+        public AutonWinner? AutonWinner { get; set; }
         public string? AutonNotes { get; set; }
         //DriverControl
         public int? DCControlPoints { get; set; }
@@ -73,6 +73,7 @@ namespace Team1138.ScoutingApp.Data.Entities
         public bool? SustainabilityBonus { get; set; }
         public bool? ActivationBonus { get; set; }
         public bool? CoopertitionBonus { get; set; }
+        public string? DCNotes { get; set; }
     }
 
     public enum AutonWinner

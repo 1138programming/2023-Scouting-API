@@ -33,7 +33,6 @@ namespace Team1138.ScoutingApp.Data.Entities
         public GamePieces? DriverControlGamePiecesUsed { get; set; }
         //EndGame
         public ChargingStationActivation? EndGameDockingActivation { get; set; }
-        public ChargingStationPosition? EndGameChargingStationPosition { get; set; }
         //Auton
         public Mobility? MobilityPoints { get; set; }
         public bool? CoopNodeTypeHighCone { get; set; }
