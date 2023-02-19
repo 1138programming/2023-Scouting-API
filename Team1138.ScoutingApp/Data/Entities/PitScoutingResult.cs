@@ -24,13 +24,17 @@ namespace Team1138.ScoutingApp.Data.Entities
         public int? NumBatteries { get; set; }
         public int? NumBatChargers { get; set; }
         //Bot and Gameplay Details
-        public MotorType? MotorType { get; set; }
+        public bool? Falcon { get; set; }
+        public bool? Neo { get; set; }
+        public bool? Cim { get; set; }
         public int? DrivetrainMotorNum { get; set; }
         public bool? NodeTypeHybridOrFloor { get; set; }
         public bool? NodeTypeMid { get; set; }
         public bool? NodeTypeHigh { get; set; }
         public bool? NodeTypeNone { get; set; }
         public GamePieces? DriverControlGamePiecesUsed { get; set; }
+        public int? HowLongToPlaceTopNode { get; set; }
+        public int? CycleTime { get; set; }
         //EndGame
         public ChargingStationActivation? EndGameDockingActivation { get; set; }
         //Auton
@@ -82,7 +86,8 @@ namespace Team1138.ScoutingApp.Data.Entities
         Unknown = 0,
         Cone = 1,
         Cube = 2,
-        Undecided = 3,
+        Both = 3,
+        Undecided = 4,
     }
     public enum Mobility
     {
