@@ -35,12 +35,12 @@ namespace Team1138.ScoutingApp.Data.Entities
         public int? AutonomousMidConeMiss { get; set; }
         public int? AutonomousLowCubeMiss { get; set; }
         public int? AutonomousLowConeMiss { get; set; }
-        public int? AutonomousHighCubeAccuracy { get; set; }
-        public int? AutonomousHighConeAccuracy { get; set; }
-        public int? AutonomousMidCubeAccuracy { get; set; }
-        public int? AutonomousMidConeAccuracy { get; set; }
-        public int? AutonomousLowCubeAccuracy { get; set; }
-        public int? AutonomousLowConeAccuracy { get; set; }
+        public double? AutonomousHighCubeAccuracy { get; set; }
+        public double? AutonomousHighConeAccuracy { get; set; }
+        public double? AutonomousMidCubeAccuracy { get; set; }
+        public double? AutonomousMidConeAccuracy { get; set; }
+        public double? AutonomousLowCubeAccuracy { get; set; }
+        public double? AutonomousLowConeAccuracy { get; set; }
         public bool? AutonDocking { get; set; }
         public bool? Engaged { get; set; }
         public bool? MobilityBonus { get; set; }
@@ -60,12 +60,12 @@ namespace Team1138.ScoutingApp.Data.Entities
         public int? DCMidConeMiss { get; set; }
         public int? DCLowCubeMiss { get; set; }
         public int? DCLowConeMiss { get; set; }
-        public int? DCHighCubeAccuracy { get; set; }
-        public int? DCHighConeAccuracy { get; set; }
-        public int? DCMidCubeAccuracy { get; set; }
-        public int? DCMidConeAccuracy { get; set; }
-        public int? DCLowCubeAccuracy { get; set; }
-        public int? DCLowConeAccuracy { get; set; }
+        public double? DCHighCubeAccuracy { get; set; }
+        public double? DCHighConeAccuracy { get; set; }
+        public double? DCMidCubeAccuracy { get; set; }
+        public double? DCMidConeAccuracy { get; set; }
+        public double? DCLowCubeAccuracy { get; set; }
+        public double? DCLowConeAccuracy { get; set; }
         public int? OPR { get; set; }
         public int? DPR { get; set; }
         public bool? DCDocking { get; set; }
