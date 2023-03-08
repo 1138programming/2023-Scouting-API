@@ -41,6 +41,7 @@ namespace Team1138.ScoutingApp.Data.Entities
         public double? AutonomousMidConeAccuracy { get; set; }
         public double? AutonomousLowCubeAccuracy { get; set; }
         public double? AutonomousLowConeAccuracy { get; set; }
+        public double? AutonomousAccuracy { get; set; }
         public bool? AutonDocking { get; set; }
         public bool? Engaged { get; set; }
         public bool? MobilityBonus { get; set; }
@@ -66,6 +67,7 @@ namespace Team1138.ScoutingApp.Data.Entities
         public double? DCMidConeAccuracy { get; set; }
         public double? DCLowCubeAccuracy { get; set; }
         public double? DCLowConeAccuracy { get; set; }
+        public double? DCAccuracy { get; set; }
         public int? OPR { get; set; }
         public int? DPR { get; set; }
         public bool? DCDocking { get; set; }
@@ -79,8 +81,8 @@ namespace Team1138.ScoutingApp.Data.Entities
     public enum AutonWinner
     {
         Unknown = 0,
-        Blue = 1,
+        Win = 1,
         Tie = 2,
-        Red = 3,
+        Loss = 3,
     }
 }
