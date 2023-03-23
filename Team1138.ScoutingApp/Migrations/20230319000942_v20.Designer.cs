@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Team1138.ScoutingApp.Data;
 
@@ -11,9 +12,11 @@ using Team1138.ScoutingApp.Data;
 namespace Team1138.ScoutingApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230319000942_v20")]
+    partial class v20
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -413,9 +416,6 @@ namespace Team1138.ScoutingApp.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("TeamNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("driveTrainType")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

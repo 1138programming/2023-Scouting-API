@@ -21,5 +21,9 @@ namespace Team1138.ScoutingApp.Data
 
         public DbSet<Team1138.ScoutingApp.Data.Entities.MatchResult> MatchResult { get; set; }
 
+        public DbSet<Team1138.ScoutingApp.Data.Entities.EliminationMatch> EliminationMatch { get; set; }
+
+        public DbSet<Team1138.ScoutingApp.Data.Entities.EliminationMatchResults> EliminationMatchResults { get; set; }
+
     }
 }

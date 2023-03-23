@@ -24,6 +24,8 @@ namespace Team1138.ScoutingApp.Data.Entities
         public int? NumBatteries { get; set; }
         public int? NumBatChargers { get; set; }
         //Bot and Gameplay Details
+        public DriveTrainType driveTrainType { get; set; }
+
         public bool? Falcon { get; set; }
         public bool? Neo { get; set; }
         public bool? Cim { get; set; }
@@ -102,6 +104,14 @@ namespace Team1138.ScoutingApp.Data.Entities
         Neo = 2,
         Cim = 3,
         Other = 4
+    }
+    public enum DriveTrainType
+    {
+        Unknown = 0,
+        Swerve = 1,
+        WestCoast = 2,
+        Tank = 3,
+        Other = 4,
     }
 
 }
